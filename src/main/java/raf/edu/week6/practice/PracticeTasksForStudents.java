@@ -29,7 +29,7 @@ public class PracticeTasksForStudents {
     // NE koristite IntStream.summaryStatistics, min(), max(), count() itd.
     // Poenta je da vidite kako reduce sa combiner-om radi na paralelnom streamu.
     //
-    // Pomoć: napravite record Stats sa PRAZAN instancom i metodama
+    // Pomoć: koristite record Stats sa PRAZAN instancom i metodama
     //   dodaj(int) i spoji(Stats).
     //
     // Primer: [3, 1, 4, 1, 5, 9] → Stats[min=1, max=9, suma=23, broj=6]
@@ -50,7 +50,6 @@ public class PracticeTasksForStudents {
     }
 
     static Stats paralelnaStatistika(List<Integer> brojevi) {
-        // TODO: koristite .parallelStream().reduce(Stats.PRAZAN, ..., ...)
         return Stats.PRAZAN;
     }
 
