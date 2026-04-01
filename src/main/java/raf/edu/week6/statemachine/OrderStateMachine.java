@@ -2,7 +2,6 @@ package raf.edu.week6.statemachine;
 
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.function.*;
 import java.util.stream.*;
 
 /**
@@ -43,7 +42,7 @@ public class OrderStateMachine {
                     List.of("[" + LocalDateTime.now().toLocalTime().withNano(0) + "] Kreirana"));
         }
 
-        Narudzbina predjuU(Status noviStatus, String opis) {
+        Narudzbina predjiU(Status noviStatus, String opis) {
             List<String> novaIstorija = new ArrayList<>(istorija);
             novaIstorija.add("[" + LocalDateTime.now().toLocalTime().withNano(0) + "] " + opis);
             return new Narudzbina(id, noviStatus, iznos, novaIstorija);
@@ -99,7 +98,7 @@ public class OrderStateMachine {
      */
     static Optional<Narudzbina> primeniAkciju(Narudzbina narudzbina, Akcija akcija) {
         return Optional.ofNullable(TRANZICIJE.get(new Tranzicija(narudzbina.status(), akcija)))
-                .map(rez -> narudzbina.predjuU(rez.u(), rez.opis()));
+                .map(rez -> narudzbina.predjiU(rez.u(), rez.opis()));
     }
 
     /**
